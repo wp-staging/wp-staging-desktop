@@ -1,0 +1,154 @@
+## v1.1.0-test.1 (2026-07-03)
+
+- **New:** WP Staging Desktop is now available for Windows. Each release ships an installer and a portable app (#77).
+- **New:** Hovering the footer Disk indicator shows WP Staging's disk use, split across Docker and each site, with a total (#2).
+- **New:** Report a bug, suggest an improvement, or contact support from inside the app, via a Help button, link, or menu (#42).
+- **New:** Bug reports can attach optional diagnostics and logs, previewed before sending. Secrets are never included (#42).
+- **New:** Add an About window showing the app version, platform, Docker status, and license state (#42).
+- **New:** Add an "Open Adminer" quick action on the site page. The tile dims when Adminer is disabled (#29).
+- **New:** "Open wp-admin" now signs you in automatically. It falls back to the login page if auto-login is off (#29).
+- **New:** Add a toggle to enable or disable Adminer on the site's Database tab (#29).
+- **New:** Add a toggle to enable or disable Mailpit on the site's Network tab (#29).
+- **New:** Add a toggle to enable or disable wp-admin auto-login on the site's Overview tab (#29).
+- **New:** Automatically update the wpstaging engine when it's older than what this app supports (#29).
+- **New:** Create subdomain multisites from the site form, with optional pre-filled subsite hostnames (#29).
+- **New:** Add a "Reset Site" action that reinstalls WordPress, optionally restoring from a backup (#29).
+- **New:** The site name you type is now saved as a friendly label shown throughout the app (#30).
+- **New:** Rename a site from the Site Detail header with an inline edit affordance (#30).
+- **Enh:** Notifications now show only announcements meant for the desktop app and its version. Dismissed ones stay hidden (#73).
+- **Enh:** Free-tier users can now restore a site from a local backup file. Downloading one from the web still needs a paid license (#51).
+- **Enh:** Free-tier access now renews automatically, so the free features keep working when the app stays open (#52).
+- **Enh:** The License page now explains what a WP Staging Pro Agency or Developer license adds to Desktop, with a clearer activation form, plain-language Pro benefits, and a short Free vs Pro comparison.
+- **Enh:** The Add Site window is simpler: start with a name, see the address fill in, pick PHP and WordPress from chips (#2).
+- **Enh:** Green success pop-ups are gone -- the screen just updates, so the app is quieter. Only errors still appear (#48).
+- **Enh:** Start, Stop, Restart, and bulk actions no longer dim the window with a dialog. A button spinner shows progress (#48).
+- **Enh:** The Sites page Refresh button now re-checks every running site, showing "Checking status..." on each card (#48).
+- **Enh:** When Adminer or Mailpit is off, hovering its tile tells you where to turn it back on (Database or Network tab) (#48).
+- **Enh:** The header is calmer -- the badge now reads "Docker", and the top-nav title shrinks as the window narrows (#48).
+- **Enh:** The License Key field is now only as wide as the key instead of stretching across the whole panel (#48).
+- **Enh:** The play arrow on the Start button is larger so it's easier to see (#48).
+- **Enh:** The "Site Ready" Admin link now signs you in automatically, just like "Open wp-admin" (#35).
+- **Enh:** Launching the app a second time now brings the existing window forward instead of opening another copy (#20).
+- **Enh:** Only ask for your administrator password once per session instead of for every action that needs it (#20).
+- **Enh:** Add a "Get a license" link on the License page when no license is active or expired (#22).
+- **Enh:** Add a Backup Directory setting on the License page to choose where backups are stored (#17).
+- **Enh:** Show a friendlier empty state on the Sites and Containers lists instead of a red error line (#22).
+- **Enh:** Notifications now appear centered and larger for better visibility (#22).
+- **Enh:** Opening the notifications panel now clears the bell's unread badge for messages you've read. Important alerts and available updates keep it lit until you act on them.
+- **Enh:** License terminal shows certificate verdict, trust stores, and per-site cert status (#22).
+- **Enh:** Hide the top menu bar by default on Linux and Windows. Press Alt to reveal it (#22).
+- **Enh:** Use NGINX in all visible labels and messages (#22).
+- **Enh:** Canceling site creation now lets the wpstaging engine clean up the half-created site before exit (#18).
+- **Enh:** Show a friendlier message when the download server is busy during the wpstaging engine install (#22).
+- **Enh:** Refer to the wpstaging engine consistently on the onboarding screen and drop developer jargon (#22).
+- **Enh:** Update the wpstaging engine in place instead of a second copy. Asks for your administrator password if needed (#22).
+- **Enh:** Show a full-screen overlay while a site is being deleted or its services are being reconfigured (#29).
+- **Enh:** Mailpit quick action now dims when Mailpit is disabled for the site (#29).
+- **Enh:** Use the right file manager name on each system: Finder on macOS, Explorer on Windows, Folder elsewhere (#29).
+- **Enh:** Tidy up label capitalization on the site detail tabs and the Danger Zone heading (#29).
+- **Enh:** Polish the onboarding screen with clearer wording and a longer pause on the "Done" message (#29).
+- **Enh:** Service toggles now show an error message when a change fails (#29).
+- **Enh:** "Open wp-admin" no longer pops a stray browser tab if you leave the site before the URL is ready (#29).
+- **Enh:** Standardize the sidebar and header button to "Create Site" so it matches the modal heading (#29).
+- **Enh:** Always create local sites over HTTPS, and remove the redundant HTTPS toggle (#29).
+- **Enh:** Restart and Reconfigure dialog text on the Containers page now reflects whether stopped sites are included too (#22).
+- **Enh:** Pause the auto-refresh on the Containers page while a Restart or Reconfigure is in flight so it finishes faster (#22).
+- **Enh:** Refresh button on the Containers page no longer spins during the initial page load (#22).
+- **Enh:** Reset Complete dialog now has Open and Close buttons matching the Site Ready dialog (#22).
+- **Enh:** Cancel button moves to the top of the Create Site and Reset Site dialogs while they're running (#22).
+- **Enh:** Give Docker up to 15 minutes to start before giving up, so a slow first start no longer fails too early (#22).
+- **Enh:** Restarting a site from the Sites list now shows a full-screen progress overlay, the same as Start and Stop (#22).
+- **Enh:** Progress overlays no longer repeat the "please wait" line, so the message stays short and clear (#22).
+- **Fix:** Settings certificate authority actions now show the real error in the terminal panel when they fail, instead of only the command line (#61).
+- **Fix:** The Sites and Containers pages no longer stay stuck on a loading spinner after you close the app window and reopen it from the dock (#59).
+- **Fix:** Captions and descriptions show at their intended smaller size, no longer forced to full size by a global style (#48).
+- **Fix:** The actions menu on the bottom site no longer opens off-screen -- it flips upward when there isn't room below (#48).
+- **Fix:** Raised the minimum window width so the Add Site button can no longer be cut off when the window is made small (#48).
+- **Fix:** Cards across the app now share one style with a 1px border and no shadow, fixing a faint ring in dark mode (#48).
+- **Fix:** Restoring a backup now writes to a known folder regardless of how the app was launched (#17).
+- **Fix:** Clicking an external link brings your default browser to the foreground on Linux (#22).
+- **Fix:** The "untrusted certificate" warning after creating a site now reflects the new site's own cert (#22).
+- **Fix:** Canceling a license deactivation shows a brief toast instead of a red alert (#22).
+- **Fix:** Reinstall the wpstaging engine if it is removed, instead of falsely reporting Docker as not installed (#22).
+- **Fix:** Site service toggles no longer hang waiting for a hidden confirm prompt (#29).
+- **Fix:** Reopening a site no longer flips a recently-enabled service back to disabled (#29).
+- **Fix:** The Multisite label on the site list survives an app restart (#29).
+- **Fix:** Create-site checklist no longer marks "Updating hosts file" as done before the hosts file is actually updated (#29).
+- **Fix:** Bulk Start All / Stop All progress now shows the live counter instead of freezing on the first site (#22).
+- **Fix:** Delete Site and Reset Site buttons no longer require the site to be running (#22).
+- **Fix:** Site names with underscores or punctuation no longer break site creation (#22).
+- **Fix:** Canceling an inline site rename now actually stops it, instead of letting the rename finish silently (#22).
+- **Fix:** Per-site Start, Stop, Restart, and Delete buttons stay disabled while a Start All or Stop All is in progress (#22).
+- **Fix:** Reset Site download panel no longer flickers when you reopen Reset soon after a previous download finished (#22).
+- **Fix:** Multi-label site names like `foo.example.local` now show all parts -- "Foo Example" instead of just "Foo" (#22).
+- **Fix:** Backup download bar no longer freezes at 0% when the backup is already cached locally (#22).
+- **Fix:** Restoring a backup no longer floods the modal log with per-file extraction percentages (#22).
+- **Fix:** The Docker requirements screen no longer flashes for a moment before the main window when you open the app (#22).
+- **Fix:** Older sites that cannot use wp-admin auto-login now show a one-click Repair option instead of a broken sign-in (#38).
+- **Fix:** Free-tier users who enter a remote backup URL now see a clear message that remote URLs need a valid license (#64).
+- **Fix:** The Restore from backup field now rejects any value that is not a .wpstg file, instead of starting a failed restore (#66).
+- **Fix:** The app now checks that a local backup file exists before it starts a restore, so wrong paths are caught early (#67).
+- **Dev:** Terser minification on bundles, plus a bundled window icon for taskbar visibility (#22).
+- **Dev:** Remove macOS loopback IP alias workaround now that CLI v1.8.0+ creates aliases natively (#23).
+- **Dev:** Ensure Windows release builds always use fresh dependencies (#21).
+- **Dev:** Ship LICENSE and NOTICE files inside the packaged app and copy them to the public release repo (#29).
+- **Dev:** Mock API handles `reconfigure` and `magic-link` so toggles and Open wp-admin work in dev mode (#29).
+- **Dev:** Extract the create-site progress UI into a shared component reused by the reset-site flow (#29).
+- **Dev:** Bulk and engine actions abort cleanly when leaving the page mid-run (#22).
+- **Dev:** Make the onboarding end-to-end test reliable on machines that already have the wpstaging engine installed (#41).
+- **Dev:** Move the free-tier signing key into a compiled native addon so the app no longer ships it as readable text (#54).
+
+## v1.1.0 (2026-04-24)
+
+- **New:** WP Staging Desktop design with switchable topnav and sidebar layouts (#2).
+- **New:** Brand-token CSS with gradient, grey scale, semantic surfaces, and typography (#2).
+- **New:** Empty state page shown when no sites are registered (#2).
+- **New:** Redesigned site list cards with status rail, multisite tag, and inline PHP/WP info (#2).
+- **New:** Containers page table replacing the status page (Container/Image/Status/Ports columns) (#2).
+- **New:** Site detail page with quick actions grid, overview/database/PHP/network tabs, and danger zone (#2).
+- **New:** Create site modal with form, progress, and done steps, replacing the add site page (#2).
+- **New:** Terminal drawer redesign with color-coded log lines and inline copy/clear buttons (#2).
+- **New:** Toast notifications for start, stop, delete, and create actions (#2).
+- **New:** Local certificate authority management with install and status IPC handlers (#2).
+- **New:** First-run Docker requirements walkthrough with a single Start Docker button (#2).
+- **New:** Clickable site and wp-admin URLs on the Site Ready screen (#2).
+- **New:** Glass-style dock icon that reads well in light and dark docks (#2).
+- **New:** Vitest unit suite and Playwright E2E suite (#2).
+- **Enh:** Consume structured --json output from CLI v1.9.0+ via typed CliEvent payloads (#2).
+- **Enh:** Terminal panel shows formatted human-readable text derived from message events (#2).
+- **Enh:** macOS sudo prompts handled in the main process via osascript, not a modal dialog (#2).
+- **Enh:** Reliable Docker detection when the app is launched from Finder or the Dock (#2).
+- **Enh:** Paused Docker Desktop is shown as its own state with a dedicated Open Docker Desktop action (#2).
+- **Enh:** Site list stays visible when Docker is stopped or paused (#2).
+- **Enh:** Automatic health checks for running sites on launch and right after a site is created (#2).
+- **Enh:** Create form validates the local domain up front (TLD support, hostname format) (#2).
+- **Enh:** Domain autocomplete keeps CLI-accepted TLDs (.local/.test/.dev/.example) or falls back to .local (#2).
+- **Enh:** Rapid Start/Stop clicks queue up FIFO instead of cancelling each other (#2).
+- **Enh:** Site status flips the moment a start/stop finishes, not at the next poll cycle (#2).
+- **Enh:** Background polling pauses while the app window is hidden (#2).
+- **Enh:** Terminal panel rendered as a block-based execution log with per-command copy buttons (#2).
+- **Enh:** Terminal buffer is capped so long sessions cannot grow memory unbounded (#2).
+- **Enh:** Footer stats split containers RAM from desktop RAM and expose the app version (#2).
+- **Enh:** Sensitive backup URLs are redacted from the on-screen log (#2).
+- **Fix:** Containers stuck in the Created state after a start are recovered automatically (#2).
+- **Fix:** A superseded CLI process no longer leaks an exit event that clobbered UI state (#2).
+- **Fix:** Stale Start Docker prompts no longer appear in the packaged app (#2).
+- **Fix:** Phantom rows on the Containers page in the packaged app are gone (#2).
+- **Fix:** Hosts file is no longer rewritten on every start/stop/restart -- only on add/remove (#2).
+- **Fix:** macOS DMG opens at 540x380 with icons positioned correctly and the right app name (#2).
+- **Fix:** Light-mode styling polished for the Requirements hero (#2).
+- **Fix:** Windows PATH handling in the runtime detector no longer corrupts drive-letter entries (#2).
+- **Fix:** Site credentials (admin password, database passwords) are no longer cached in browser storage (#2).
+- **Dev:** Notarization pre-flight fails fast on 401/403 instead of after the full signed build (#2).
+
+## v1.0.0 (2026-02-15)
+
+- **New:** SolidJS/TypeScript rewrite with electron-vite.
+- **New:** Docker Desktop-inspired UI with dark sidebar, terminal panel, and status bar.
+- **New:** Real-time terminal output with ANSI stripping and 50ms buffering.
+- **New:** Interactive prompt detection with modal dialog.
+- **New:** Dark and light mode with system preference as the default.
+- **New:** Docker Engine and CLI status indicators with CLI version display in the sidebar.
+- **New:** System monitoring (RAM, CPU, disk) in the status bar.
+- **New:** Native file and directory picker dialogs.
+- **New:** Auto-download of CLI binary via postinstall hook.
