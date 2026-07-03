@@ -1,4 +1,4 @@
-## v1.2.0-beta.1 (2026-07-03)
+## v1.2.0-beta.2 (2026-07-03)
 
 - **New:** WP Staging Desktop is now available for Windows. Each release ships an installer and a portable app (#77).
 - **New:** Hovering the footer Disk indicator shows WP Staging's disk use, split across Docker and each site, with a total (#2).

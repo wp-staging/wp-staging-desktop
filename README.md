@@ -6,7 +6,7 @@
 
 ### Turn a live WordPress site into a local development environment in minutes.
 
-Clone a production website to your own machine, test risky changes safely, and switch PHP versions per site, all locally. **No manual Docker setup. No host lock-in. No account required to start.**
+Clone a production website to your own machine, test risky changes safely, and switch PHP versions per site, all locally. **Free to use, not a trial. No manual Docker setup, no host lock-in, no account required to start.**
 
 [![Download Free](https://img.shields.io/badge/Download-Free-2ea44f?style=for-the-badge)](https://github.com/wp-staging/wp-staging-desktop/releases/latest)
 &nbsp;
@@ -19,6 +19,14 @@ Clone a production website to your own machine, test risky changes safely, and s
 </div>
 
 ---
+
+<div align="center">
+
+<a href="https://wp-staging.com/desktop/create-site-demo.mp4"><img src="https://wp-staging.com/desktop/og-wp-staging-desktop.png" alt="Watch: clone a live WordPress site to your machine in about a minute" width="760" /></a>
+
+<sub>▶ <strong>Watch the demo</strong> — a live site cloned to a local copy in about a minute.</sub>
+
+</div>
 
 Most WordPress work starts with an existing live site, not a blank install. Getting that site onto your computer safely is the slow, error-prone part: exporting databases, copying files, replacing URLs, fixing environment mismatches. WP Staging Desktop does it from a single portable backup file in about a minute.
 
@@ -35,6 +43,14 @@ From live site to local copy in four steps. Free, no account needed:
 
 The restored site runs locally with its real files, database, plugins, themes, and uploads. It is a true copy of production that you can break, test, and rebuild without ever touching the live website.
 
+<div align="center">
+
+<img src="assets/screenshot-restore.png" alt="Restore from backup: pick a .wpstg file and WP Staging Desktop builds a local site" width="820" />
+
+<sub>Add a site from a <code>.wpstg</code> backup.</sub>
+
+</div>
+
 ## Why you'll want it
 
 - 🚀 **Real sites in ~60 seconds.** Spin up a live-site copy or a clean install without configuring Docker by hand.
@@ -45,9 +61,25 @@ The restored site runs locally with its real files, database, plugins, themes, a
 - 🗂️ **Everything in one place.** Production copies, restored backups, compatibility tests, and clean installs, side by side.
 - 🤖 **A real sandbox for AI coding agents.** Give Claude, Codex, or Cursor an actual running WordPress site to inspect, edit, and rebuild, instead of guessing from static files.
 
+<div align="center">
+
+<img src="assets/screenshot-sites.png" alt="WP Staging Desktop Sites list showing several local WordPress sites side by side" width="820" />
+
+<sub>All your local sites, side by side.</sub>
+
+</div>
+
 ## Free vs Pro
 
-The free version is a **complete local development tool, not a trial.** WP Staging Pro adds remote, production-connected workflows.
+The free version is a **complete local development tool, not a trial.** Every local site runs with one-click `wp-admin` auto-login, PHP switching, and reset, with no license required. WP Staging Pro adds remote, production-connected workflows on top.
+
+<div align="center">
+
+<img src="assets/screenshot-site-detail.png" alt="Site detail view with wp-admin auto-login, PHP and WordPress version, and reset controls" width="820" />
+
+<sub>Manage each local site: one-click <code>wp-admin</code> auto-login, PHP/WordPress versions, and reset. Free-tier sites start without Pro.</sub>
+
+</div>
 
 | Feature | Desktop (Free) | Desktop + WP Staging Pro |
 |---|:---:|:---:|
