@@ -1,3 +1,9 @@
+## v1.2.1 (2026-07-12)
+
+- **Enh:** Missing Docker images are now downloaded at startup, before the sites load (#90).
+- **Fix:** After a restore, the "Site Ready" dialog no longer shows login details that may not work (#87).
+- **Fix:** Confirmation dialogs now show the explanation above the question, making the action being confirmed clear (#88).
+
 ## v1.2.0 (2026-07-03)
 
 - **New:** WP Staging Desktop is now available for Windows. Each release ships an installer and a portable app (#77).
