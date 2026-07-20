@@ -1,3 +1,12 @@
+## v1.2.2 (2026-07-20)
+
+- **Enh:** The Update button in notifications now downloads and installs the wpstaging engine directly (#94).
+- **Fix:** The footer disk indicator now matches the used space your operating system reports. It was too low before (#84).
+- **Fix:** The "Release notes" link in notifications now opens the wpstaging engine release notes (#95).
+- **Fix:** The License page no longer shows a renewal notice until the license has actually expired (#85).
+- **Fix:** The Site Name field no longer drops everything after the first dot when creating a site (#97).
+- **Dev:** Build files from the release workflow are now kept for one day instead of two weeks, since the installers are already published as release downloads (#102).
+
 ## v1.2.1 (2026-07-12)
 
 - **Enh:** Missing Docker images are now downloaded at startup, before the sites load (#90).
