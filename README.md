@@ -2,7 +2,7 @@
 
 <img src="assets/logo.png" alt="WP Staging Desktop logo" width="120" />
 
-# WP Staging Desktop
+# Local WordPress Sites with WP Staging Desktop
 
 ### Turn a live WordPress site into a local development environment in minutes.
 
