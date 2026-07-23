@@ -192,12 +192,27 @@ Open the **Settings** page in the app and click **Install local certificate auth
 **Q27a: Only one of my sites has a certificate warning. How do I fix just that site?**  
 
 **A27a:**
-Open the site, then click the **Diagnose** tab. Find the **Site Certificate** row. If it shows expired, stale, or not trusted, click **Reinstall Certificate** under the **Suggested fix** box. The app reissues this site's certificate and restarts its containers. Other sites and the local certificate authority are not changed.
+Open the site, then click the **Diagnose & Logs** tab. Find the **Site Certificate** row. If it shows expired, stale, or not trusted, click **Reinstall Certificate** under the **Suggested fix** box. The app reissues this site's certificate and restarts its containers. Other sites and the local certificate authority are not changed.
 
 <a name="q28"></a>
 **Q28: What is the terminal panel at the bottom of the app?**  
 **A28:**
 It shows what the underlying tool is doing. You can copy the text or hide the panel. Power users can read the panel to see the exact commands the app runs.
+
+<a name="q28a"></a>
+**Q28a: Can I see the log after my site finishes creating?**  
+**A28a:**
+Yes. Open the site detail page and click the **Diagnose & Logs** tab. Under **Install Log**, click **Show log** to see the same output the terminal panel showed while the site was created, plus any resets since. Click **Copy** to copy the text, or **Delete log** to remove it.
+
+<a name="q28b"></a>
+**Q28b: My site creation failed. How do I send the log to support?**  
+**A28b:**
+On the failed screen, click **Report a problem**. This opens the feedback form with **Attach site install log** already turned on. You can also click the Help icon in the header at any time, choose **Report a Bug**, pick the affected site, and turn on **Attach site install log** yourself.
+
+<a name="q28c"></a>
+**Q28c: Can I see the app's own log?**  
+**A28c:**
+Yes. Open any site detail page and click the **Diagnose & Logs** tab. Under **Application Log**, click **Show log** to see the app's recent activity. Click **Copy** to copy the text, **Reset** to clear the log, or **Open logs folder** to find the log files on disk. If a site creation or reset fails, its log is also saved here, so you can still see it even when the site was not created.
 
 <a name="q29"></a>
 **Q29: Can I switch between sidebar and top navigation?**  
@@ -390,4 +405,4 @@ The list refreshes from the internet every six hours. If you are offline, the ap
 
 ---
 
-**Last Updated:** 2026-07-03 14:12:13 UTC
+**Last Updated:** 2026-07-22 16:53:33 UTC
