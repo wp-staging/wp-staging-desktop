@@ -1,3 +1,10 @@
+## v1.2.3-beta.1 (2026-07-23)
+
+- **Enh:** The footer now shows the Desktop and Engine versions at a glance, without hovering (#115).
+- **Enh:** The site's install log is now saved. View it on the Diagnose & Logs tab, or attach it to a support ticket (#100).
+- **Enh:** The Diagnose & Logs tab now also shows the application log, and a failed site creation or reset keeps its log for later (#100).
+- **Enh:** Links inside notification messages are now clickable and open in your browser, so you no longer need to copy them by hand (#108).
+
 ## v1.2.2 (2026-07-20)
 
 - **Enh:** The Update button in notifications now downloads and installs the wpstaging engine directly (#94).
