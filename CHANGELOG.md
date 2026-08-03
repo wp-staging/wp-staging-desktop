@@ -1,3 +1,19 @@
+## v1.3.0 (2026-08-03)
+
+- **New:** WP Staging Desktop can now update itself. It checks for a new version and installs it with a Download and a Restart click (#104).
+- **Enh:** Logs on the Diagnose & Logs tab are now safer. The site install log can no longer be deleted, and clearing the application log asks you to confirm first (#117).
+- **Enh:** The footer now shows the Desktop and Engine versions at a glance, without hovering (#115).
+- **Enh:** The site's install log is now saved. View it on the Diagnose & Logs tab, or attach it to a support ticket (#100).
+- **Enh:** The Diagnose & Logs tab now also shows the application log, and a failed site creation or reset keeps its log for later (#100).
+- **Enh:** Links inside notification messages are now clickable and open in your browser, so you no longer need to copy them by hand (#108).
+- **Enh:** The wpstaging engine update now shows its progress inside the notifications panel, so the rest of the app stays usable (#104).
+- **Enh:** A new Download again switch downloads the backup file again instead of reusing the copy already on your computer. It only shows up when there is an old copy to reuse, and an information icon explains what it does (#123).
+- **Enh:** A restore that skipped subsites now shows a clear warning with the reasons, instead of reporting full success (#111).
+- **Enh:** Sites the desktop app manages now identify themselves to the WP Staging plugin, so upgrade links point to the right place (#125).
+- **Fix:** The backup file location is now hidden in the site form and progress window, so screenshots cannot reveal it (#119).
+- **Fix:** Passwords and license keys are no longer shown in the command output or in saved logs (#119).
+- **Fix:** The wpstaging engine update no longer offers an older version or replaces a newer engine with an older one (#122).
+
 ## v1.2.2 (2026-07-20)
 
 - **Enh:** The Update button in notifications now downloads and installs the wpstaging engine directly (#94).

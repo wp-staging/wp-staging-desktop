@@ -192,12 +192,27 @@ Open the **Settings** page in the app and click **Install local certificate auth
 **Q27a: Only one of my sites has a certificate warning. How do I fix just that site?**  
 
 **A27a:**
-Open the site, then click the **Diagnose** tab. Find the **Site Certificate** row. If it shows expired, stale, or not trusted, click **Reinstall Certificate** under the **Suggested fix** box. The app reissues this site's certificate and restarts its containers. Other sites and the local certificate authority are not changed.
+Open the site, then click the **Diagnose & Logs** tab. Find the **Site Certificate** row. If it shows expired, stale, or not trusted, click **Reinstall Certificate** under the **Suggested fix** box. The app reissues this site's certificate and restarts its containers. Other sites and the local certificate authority are not changed.
 
 <a name="q28"></a>
 **Q28: What is the terminal panel at the bottom of the app?**  
 **A28:**
 It shows what the underlying tool is doing. You can copy the text or hide the panel. Power users can read the panel to see the exact commands the app runs.
+
+<a name="q28a"></a>
+**Q28a: Can I see the log after my site finishes creating?**  
+**A28a:**
+Yes. Open the site detail page and click the **Diagnose & Logs** tab. Under **Install Log**, click **Show log** to see the same output the terminal panel showed while the site was created, plus any resets since. Click **Copy** to copy the text. The install log is kept for support and cannot be deleted here; it is removed only when you delete the site.
+
+<a name="q28b"></a>
+**Q28b: My site creation failed. How do I send the log to support?**  
+**A28b:**
+On the failed screen, click **Report a problem**. This opens the feedback form with **Attach site install log** already turned on. You can also click the Help icon in the header at any time, choose **Report a Bug**, pick the affected site, and turn on **Attach site install log** yourself.
+
+<a name="q28c"></a>
+**Q28c: Can I see the app's own log?**  
+**A28c:**
+Yes. Open any site detail page and click the **Diagnose & Logs** tab. Under **Application Log**, click **Show log** to see the app's recent activity. Click **Copy** to copy the text, **Reset** to clear the log (you are asked to confirm first), or **Open logs folder** to find the log files on disk. If a site creation or reset fails, its log is also saved here, so you can still see it even when the site was not created.
 
 <a name="q29"></a>
 **Q29: Can I switch between sidebar and top navigation?**  
@@ -218,6 +233,11 @@ Yes. When creating a site, click **Advanced options** and pick your `.wpstg` bac
 **Q31a: Where do restored backups go on my computer?**  
 **A31a:**
 The app keeps extracted and downloaded backups under a folder called **wpstaging-desktop-archive** in your home directory. To change the location, open the **Settings** page and edit **Backup Workspace**. The app creates `wpstaging-output` and `wpstaging-download` subfolders inside your chosen folder.
+
+<a name="q31b"></a>
+**Q31b: I restored from a backup URL, but the app used an old copy of the file. How do I get the newest one?**  
+**A31b:**
+When you restore from a web address, the app reuses the file it already downloaded, so a second restore is much faster. If the file on the server has changed, switch on **Download again** under the backup field. The app then downloads the file again and replaces the old copy. The switch only appears when there is an old copy to reuse, so you will not see it for a file on your computer or for a web address you have never downloaded from. It also needs engine v1.13.3 or newer. The small information icon next to the switch explains what it does.
 
 <a name="q32"></a>
 **Q32: How do I see all running containers?**  
@@ -390,4 +410,4 @@ The list refreshes from the internet every six hours. If you are offline, the ap
 
 ---
 
-**Last Updated:** 2026-07-03 14:12:13 UTC
+**Last Updated:** 2026-07-31 18:54:14 UTC
