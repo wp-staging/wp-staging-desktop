@@ -285,7 +285,14 @@ Open the License page and click **Deactivate**. You can then use the license on 
 <a name="q39"></a>
 **Q39: How do I update the app?**  
 **A39:**
-Updates are manual today. To get a new version, open the [WP Staging Desktop releases page](https://github.com/wp-staging/wp-staging-desktop/releases), download the new file for your system, and then:
+From version 1.3.0 the app updates itself. When a new version is ready, the bell at the top shows a **Desktop App Update** card. Click **Download**, wait for the progress bar, then click **Restart & Install**. The app closes, installs the update, and opens again. Nothing is downloaded or installed without your click.
+
+You still need to update by hand in two cases:
+
+- **You use version 1.2.2 or older.** These versions cannot update themselves. Install version 1.3.0 by hand one time. After that the app takes over.
+- **You use the Windows portable build.** It has no installer, so it cannot update itself.
+
+To update by hand, open the [WP Staging Desktop releases page](https://github.com/wp-staging/wp-staging-desktop/releases), download the new file for your system, and then:
 
 - macOS: open the new `.dmg` and drag the app to Applications. Choose **Replace** when asked.
 - Windows: run the new installer. It will close the old app and update it for you.
@@ -293,12 +300,15 @@ Updates are manual today. To get a new version, open the [WP Staging Desktop rel
 
 Your sites are kept.
 
+Settings has a **Receive beta updates** toggle. It is off by default, so you only get stable versions. Turn it on if you want to test new versions early.
+
 <a name="q39a"></a>
 **Q39a: What are the notifications shown by the bell icon?**  
 
 **A39a:**
-The bell at the top of the app shows two kinds of messages:
+The bell at the top of the app shows three kinds of messages:
 
+- An available **Desktop App Update**, with a Download button.
 - An available **wpstaging engine** update, with an Update button.
 - Announcements from WP Staging, such as news, tips, or important notices.
 
@@ -410,4 +420,4 @@ The list refreshes from the internet every six hours. If you are offline, the ap
 
 ---
 
-**Last Updated:** 2026-07-31 18:54:14 UTC
+**Last Updated:** 2026-08-03 14:44:47 UTC
