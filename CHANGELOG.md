@@ -1,3 +1,26 @@
+## v1.4.0 (2026-08-11)
+
+- **New:** Add Site has a third option, Pull from production. It creates a local site with WP Staging Pro ready, and tells you where to find Remote Sync to copy your live site into it (#142).
+- **New:** Every site now has a Pull from production action, on the site page and in the site row menu. With a Developer or Agency license it signs you in to that site's WP Admin, where WP Staging → Remote Sync copies your live site in (#142).
+- **Enh:** The Pro page now explains what you get before it asks for a license key. It opens with the main benefit and a Get Developer button you can see without scrolling (#142).
+- **Enh:** The site page now shows what production workflows do for you, instead of only offering to install a plugin. With a license it shows WP Staging Pro as active and opens WP Admin, where Remote Sync lives (#142).
+- **Enh:** Pasting a backup URL without a license now explains the paid feature in a calm panel, instead of a red error that made it look like you typed something wrong. Until you paste one, the field simply says that local restores are free (#142).
+- **Enh:** Without a license, the License menu item is now called Pro, so it is clear where to look before you buy (#142).
+- **Fix:** The license key field showed an example key in a format we never use, which made a correct key look wrong. It now shows the real length and shape (#142).
+- **Enh:** The terminal now describes the WP Staging CLI while it is still empty, so you can see what the command line adds (#142).
+- **New:** A Sync Subsites button makes subsites added in wp-admin work in the browser (#141).
+- **Enh:** Installing WP Staging Pro now shows which site is being set up and how far along the run is (#124).
+- **Enh:** The WP Staging Pro install can now be hidden and keeps running in the background, with progress in the footer (#143).
+- **Enh:** The app now needs wpstaging engine v1.14.0 or newer and updates an older engine at startup. This keeps the subsite addresses of a multisite network when you switch Adminer, Mailpit or Magic Link on or off (#134).
+- **Fix:** The WP Staging Pro prompt now says that every site is set up again and restarts briefly (#124).
+- **Fix:** A failed WP Staging Pro install now names the site and the reason, instead of a message that disappears (#143).
+- **Fix:** Installing WP Staging Pro no longer starts over from the first site when the hosts file needs a password (#143).
+- **Fix:** Add Site, New blank site can now add subdomains to a multisite network (#139).
+- **Fix:** A damaged wpstaging engine now shows a clear error instead of leaving the app quietly ignoring every action (#133).
+- **Fix:** On Linux, a damaged wpstaging engine now explains the problem instead of showing a confusing system message (#137).
+- **Dev:** The type check now works. It checked no files before, so errors could slip into a release (#139).
+- **Dev:** Run the automated tests on Linux, macOS, and Windows to catch problems that only appear on one system (#132).
+
 ## v1.3.0 (2026-08-03)
 
 - **New:** WP Staging Desktop can now update itself. It checks for a new version and installs it with a Download and a Restart click (#104).

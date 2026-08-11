@@ -237,7 +237,7 @@ The app keeps extracted and downloaded backups under a folder called **wpstaging
 <a name="q31b"></a>
 **Q31b: I restored from a backup URL, but the app used an old copy of the file. How do I get the newest one?**  
 **A31b:**
-When you restore from a web address, the app reuses the file it already downloaded, so a second restore is much faster. If the file on the server has changed, switch on **Download again** under the backup field. The app then downloads the file again and replaces the old copy. The switch only appears when there is an old copy to reuse, so you will not see it for a file on your computer or for a web address you have never downloaded from. It also needs engine v1.13.3 or newer. The small information icon next to the switch explains what it does.
+When you restore from a web address, the app reuses the file it already downloaded, so a second restore is much faster. If the file on the server has changed, switch on **Download again** under the backup field. The app then downloads the file again and replaces the old copy. The switch only appears when there is an old copy to reuse, so you will not see it for a file on your computer or for a web address you have never downloaded from. The small information icon next to the switch explains what it does.
 
 <a name="q32"></a>
 **Q32: How do I see all running containers?**  
@@ -420,4 +420,4 @@ The list refreshes from the internet every six hours. If you are offline, the ap
 
 ---
 
-**Last Updated:** 2026-08-03 14:44:47 UTC
+**Last Updated:** 2026-08-04 18:26:36 UTC
