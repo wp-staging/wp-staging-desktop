@@ -1,3 +1,15 @@
+## v1.5.0-beta.1 (2026-08-11)
+
+- **New:** A new Appearance menu in the top bar lets you choose light, dark, or automatic, and pick one of four color tones. Each theme remembers its own tone (#145).
+- **Enh:** The terminal panel keeps its dark console background in the light theme, so log output stays easy to read (#145).
+- **Enh:** The whole app has a new look: quieter surfaces, softly rounded panels, hairlines instead of boxes, and one clear blue button per screen (#145).
+- **Enh:** The Add Site window, the site creation progress, the License page, Containers, and Settings all follow the new look (#145).
+- **Enh:** The Sites list is now a compact table. PHP and WordPress have their own columns, so you can scan versions down the list, and a count of your total, running, and unhealthy sites sits at the top (#145).
+- **New:** Filter the Sites list by All, Running, Stopped, or Issues (#145).
+- **Enh:** The top bar and the status bar have a new, quieter look: a clearer page menu, a smaller Add Site button, and readable system numbers (#145).
+- **Enh:** Versions, sizes, and terminal output now use the IBM Plex Mono typeface, which is built into the app and needs no internet connection (#145).
+- **Dev:** Add the design tokens and the appearance model (theme plus color tone) that the new look of the app is built on (#145).
+
 ## v1.4.0 (2026-08-11)
 
 - **New:** Add Site has a third option, Pull from production. It creates a local site with WP Staging Pro ready, and tells you where to find Remote Sync to copy your live site into it (#142).
