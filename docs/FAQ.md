@@ -340,7 +340,7 @@ The simplest way is to use the WP Staging Pro plugin to create a backup file (`.
 **A43:**
 The app contacts a few servers:
 
-- **wp-staging.com** to check your license and to load announcements shown in the app.
+- **wp-staging.com** to check your license, to load announcements shown in the app, and to report that the wpstaging engine was installed or updated.
 - **Docker Hub** to download container images the first time.
 - **api.wordpress.org** to get the list of recent WordPress versions.
 
@@ -420,4 +420,4 @@ The list refreshes from the internet every six hours. If you are offline, the ap
 
 ---
 
-**Last Updated:** 2026-08-04 18:26:36 UTC
+**Last Updated:** 2026-08-12 16:10:00 UTC

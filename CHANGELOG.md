@@ -1,3 +1,15 @@
+## v1.5.0 (2026-08-25)
+
+- **Enh:** The Sites and Containers pages now have a search box and show 20 rows per page (#71).
+- **Enh:** Terminal output and saved logs now mask the WP Admin auto-login link (#147).
+- **Enh:** Copy and reveal icons next to site details are now always visible, instead of only appearing on hover (#166).
+- **Fix:** Pro features are now locked once a license expires, matching the message on the License page (#146).
+- **Fix:** Entering an expired license key now shows the expired state right away, without restarting the app (#156).
+- **Fix:** A license error is no longer hidden when the page cannot show the expired state itself (#157).
+- **Fix:** The certificate check now finishes on installs with many sites, so the certificate state shows again (#149).
+- **Fix:** Diagnose can now move a site to a free address when another container is using the one it has (#151).
+- **Fix:** The License page now shows the plan name right after registering, and no longer repeats the word "License" in it (#162).
+
 ## v1.4.0 (2026-08-11)
 
 - **New:** Add Site has a third option, Pull from production. It creates a local site with WP Staging Pro ready, and tells you where to find Remote Sync to copy your live site into it (#142).
