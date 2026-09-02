@@ -131,9 +131,11 @@ The first time you use the app, it creates a folder in your home folder for your
 | Folder | What it holds |
 |--------|---------------|
 | `~/wpstaging/sites/<site-name>/` | The files for one WordPress site |
-| `~/wpstaging/stack/mariadb/` | The database storage shared by all sites |
+| `~/wpstaging/sites/<site-name>/data/mariadb/` | The database files for that one site |
 | `~/wpstaging/stack/ca/` | A local certificate used for HTTPS on local sites |
 | `~/wpstaging/stack/docker/` | A few small support scripts |
+
+If you switch on **Store the database in a Docker volume** when you create a site, that site keeps its database files inside Docker instead of the folder above.
 
 The app also saves its own settings (theme, layout, license) in the standard place for your system:
 
@@ -224,4 +226,4 @@ docker system prune -a
 
 ---
 
-**Last Updated:** 2026-07-03 14:12:13 UTC
+**Last Updated:** 2026-08-31 12:50:50 UTC
