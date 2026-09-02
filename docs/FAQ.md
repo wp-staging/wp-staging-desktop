@@ -153,15 +153,31 @@ Click the **Create site** button at the top of the app. Enter a name, pick a PHP
 <a name="q21a"></a>
 **Q21a: How do I change the PHP or WordPress version for an existing site?**  
 **A21a:**
-Open the site detail page and go to the **PHP / WP** tab. Pick a new version from **Switch PHP version** or **Switch WordPress version**, click **Switch**, and confirm the change. The site must be running.
+Open the site detail page and go to the **PHP & WordPress** tab. Pick a new version from **Switch PHP version** or **Switch WordPress version**, click **Switch**, and confirm the change. The site must be running.
 
 - Switching PHP restarts only this site's containers. The site is offline for a few seconds. Other sites are not affected.
 - Switching WordPress replaces the core files in place. The database, plugins, themes, and uploads are preserved. Containers do not restart.
 
+<a name="q21b"></a>
+**Q21b: How do I open a command line inside a site?**  
+**A21b:**
+Open the site detail page, go to the **PHP & WordPress** tab, click **Open Shell**, and confirm. Your terminal application opens with a shell inside the site's PHP container, where the WordPress files are. Use it to run WP-CLI, read files, or check a problem. The site must be running.
+
+If the app cannot open a terminal, it prints the command in the terminal panel at the bottom of the window. Copy that command and run it yourself.
+
 <a name="q22"></a>
 **Q22: Where are my sites stored?**  
 **A22:**
-In your home folder, under `~/wpstaging/sites/<site-name>/`. The shared database files live in `~/wpstaging/stack/mariadb/`.
+In your home folder, under `~/wpstaging/sites/<site-name>/`. Each site keeps its own database files in its `data/mariadb` folder, unless you chose to store the database in a Docker volume.
+
+<a name="q22a"></a>
+**Q22a: Should I store the database in a Docker volume?**  
+**A22a:**
+When you create a site, open **Advanced options** and you will find **Store the database in a Docker volume**. On macOS and Linux it is off by default, so the database files stay in the site folder, where you can open them.
+
+Switch it on to keep them inside Docker instead. This is faster on Docker Desktop, because Docker no longer shares those files with your computer. The downside is that you can no longer open them yourself.
+
+You choose this once, when the site is created, and it cannot be changed later. On Windows the switch is always on and cannot be changed, because Docker always needs a volume there. Deleting the site removes the volume too.
 
 <a name="q23"></a>
 **Q23: How do I open a site in my browser?**  
@@ -227,7 +243,7 @@ Yes. Click the theme button in the header to switch between **Light**, **Dark**,
 <a name="q31"></a>
 **Q31: Can I restore a backup made by the WP Staging WordPress plugin?**  
 **A31:**
-Yes. When creating a site, click **Advanced options** and pick your `.wpstg` backup file with the **Restore from backup** picker. The new site is built from your backup.
+Yes. Click **Add Site**, choose **Restore from backup**, then pick your `.wpstg` file with **Browse**. You can also paste its path or web address into the **Backup Source** field. The new site is built from your backup.
 
 <a name="q31a"></a>
 **Q31a: Where do restored backups go on my computer?**  
@@ -420,4 +436,4 @@ The list refreshes from the internet every six hours. If you are offline, the ap
 
 ---
 
-**Last Updated:** 2026-08-12 16:10:00 UTC
+**Last Updated:** 2026-09-01 16:37:04 UTC

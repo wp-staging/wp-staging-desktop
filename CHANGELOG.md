@@ -1,3 +1,10 @@
+## v1.6.0 (2026-09-02)
+
+- **New:** An Open Shell button opens a command line inside the site, where the WordPress files are (#130).
+- **New:** When you create a site, you can now store its database in a Docker volume, which is faster on Docker Desktop (#128).
+- **Enh:** Remote Sync now opens directly on the site, instead of landing on the WordPress dashboard first (#173).
+- **Enh:** The app now needs wpstaging engine v1.15.0 or newer and updates an older engine at startup (#173).
+
 ## v1.5.0 (2026-08-25)
 
 - **Enh:** The Sites and Containers pages now have a search box and show 20 rows per page (#71).
