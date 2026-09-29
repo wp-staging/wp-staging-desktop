@@ -165,6 +165,32 @@ Open the site detail page, go to the **PHP & WordPress** tab, click **Open Shell
 
 If the app cannot open a terminal, it prints the command in the terminal panel at the bottom of the window. Copy that command and run it yourself.
 
+<a name="q21c"></a>
+**Q21c: Can a site run on Apache instead of NGINX?**  
+**A21c:**
+Yes. When you create a site, go to the **Will be created with** row and set **Web server** to **Apache**. To move an existing site, open the site detail page and go to the **PHP & WordPress** tab. Pick a web server from **Switch web server**, click **Switch**, and confirm. The site must be running.
+
+- The Sites list and the site detail page show which web server each site uses.
+- Apache needs wpstaging engine v1.16.0 or newer. The app updates an older engine when it starts.
+- The first time you use Apache, the app downloads the Apache image. This takes a little longer.
+- Switching restarts only this site's containers. The site is offline for a few seconds. Other sites are not affected.
+- On Apache, the app updates the WordPress rules in the `.htaccess` file in the site's `www` folder. Lines that Apache cannot use become comments, and a copy of the original file is saved next to it as `.htaccess.wpstg-backup`. The app lists these changes as warnings.
+- When you restore a backup to an Apache site, the app warns you about `.htaccess` lines that name the live site's domain. These lines can send visitors to the live site.
+- NGINX does not read `.htaccess`. If you move a site back to NGINX, rules you added there no longer apply.
+
+<a name="q21d"></a>
+**Q21d: Can a site use MySQL or another MariaDB version?**  
+**A21d:**
+Yes. When you create a site, go to the **Will be created with** row and set **Database** to the server you want. The choices are MariaDB 11.8, 11.4 and 10.11, and MySQL 8.4 and 5.7. MariaDB 11.8 is the default.
+
+- To change the server of an existing site, open the site detail page. On the **Overview** tab, click **Reset**, and pick a server under **Database server**. Only a reset can change it.
+- A reset with a new server clears the site database. To keep the content, restore a backup during the reset.
+- The Sites list and the site detail page show which server each site uses.
+- A MySQL site still keeps its database files in the `data/mariadb` folder. See [Q22](#q22).
+- MySQL 5.7 has no ARM build. It runs slower on Apple Silicon, and it may not start on Windows on ARM.
+- A backup from MariaDB 10.10 or newer can fail to restore into a MySQL site with `Unknown collation`. This affects tables that a plugin created without a collation. Keep such a site on MariaDB.
+- This needs wpstaging engine v1.16.0 or newer. The app updates an older engine when it starts.
+
 <a name="q22"></a>
 **Q22: Where are my sites stored?**  
 **A22:**
@@ -254,6 +280,15 @@ The app keeps extracted and downloaded backups under a folder called **wpstaging
 **Q31b: I restored from a backup URL, but the app used an old copy of the file. How do I get the newest one?**  
 **A31b:**
 When you restore from a web address, the app reuses the file it already downloaded, so a second restore is much faster. If the file on the server has changed, switch on **Download again** under the backup field. The app then downloads the file again and replaces the old copy. The switch only appears when there is an old copy to reuse, so you will not see it for a file on your computer or for a web address you have never downloaded from. The small information icon next to the switch explains what it does.
+
+<a name="q31c"></a>
+**Q31c: Why does the app warn that a port is already in use?**  
+**A31c:**
+Another program on your computer is already using port 80 or 443 for every address. Web servers, some virtual machine tools, and other local development apps do this. The site is still created, but it runs on a different port, so its address includes that port number, for example `https://my-site.local:4444`.
+
+You have two choices. Click **Create Anyway** to accept the different port. Or click **Cancel**, close the other program, and create the site again to get the standard port.
+
+To see the current answer at any time, open the site detail page, click the **Diagnose & Logs** tab, and look at the **Port Availability** row.
 
 <a name="q32"></a>
 **Q32: How do I see all running containers?**  
@@ -436,4 +471,4 @@ The list refreshes from the internet every six hours. If you are offline, the ap
 
 ---
 
-**Last Updated:** 2026-09-01 16:37:04 UTC
+**Last Updated:** 2026-09-22 16:54:18 UTC

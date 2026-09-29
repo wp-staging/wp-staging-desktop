@@ -1,3 +1,18 @@
+## v1.7.0 (2026-09-29)
+
+- **New:** Sites can now run on Apache instead of NGINX. Pick it when creating a site, or switch an existing site (#191).
+- **New:** Sites can now run MySQL or another MariaDB version. Pick it when creating or resetting a site (#195).
+- **Enh:** The HTTP, HTTPS, database and Mailpit ports and the Container IP can now be changed on the site page (#200).
+- **Enh:** The Sites list and the site detail page now show whether each site runs on NGINX or Apache (#191).
+- **Enh:** The app now needs wpstaging engine v1.16.0 or newer (#191).
+- **Enh:** The app now warns before creating a site if another program is using port 80 or 443 (#114).
+- **Enh:** The Diagnose tab now shows if ports 80 and 443 are free (#114).
+- **Enh:** Support reports now show who owns each site folder and its permissions (#63).
+- **Fix:** The app no longer freezes when the wpstaging engine prints a very long line (#196).
+- **Fix:** A new site that runs on a different port now shows and opens the right address, port included (#114).
+- **Dev:** Regenerating the screenshots now rewrites only the ones that really changed, so a pull request shows what it altered (#197).
+- **Dev:** `make dist-win-unsigned` now works on Apple Silicon Macs (#202).
+
 ## v1.6.0 (2026-09-02)
 
 - **New:** An Open Shell button opens a command line inside the site, where the WordPress files are (#130).
