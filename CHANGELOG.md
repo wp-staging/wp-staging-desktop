@@ -1,3 +1,7 @@
+## v1.7.1 (2026-10-05)
+
+- **Enh:** The app now reports which operating system version it runs on, so we know which macOS, Windows and Linux versions to keep supporting (#217).
+
 ## v1.7.0 (2026-09-29)
 
 - **New:** Sites can now run on Apache instead of NGINX. Pick it when creating a site, or switch an existing site (#191).
