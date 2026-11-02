@@ -10,7 +10,6 @@ Before you install, make sure you have:
 
 - A supported operating system (see the table below).
 - Docker installed and running.
-- A WP Staging Pro license key.
 - An internet connection for the first run.
 - 4 GB of RAM or more.
 - 10 GB of free disk space or more.
@@ -21,21 +20,23 @@ If all of these are true, you are ready to install.
 
 ## Supported Operating Systems
 
-We provide a signed app for each system.
+We provide a signed app for macOS and Windows. The Linux AppImage is not signed.
 
 | System | Version you need | Download file |
 |--------|------------------|----------------|
-| macOS | 11 (Big Sur) or newer | `.dmg` (contains the `.app` -- drag to Applications) |
-| Windows | Windows 10 or newer (also Windows Server 2019+) | `.exe` installer |
-| Linux | Ubuntu 20.04 or newer, Debian 11+, Fedora 32+, RHEL 8+ | `.AppImage` (portable, no install needed) |
+| macOS | 13 (Ventura) or newer | `.dmg` (contains the `.app` -- drag to Applications) |
+| Windows | Windows 10 or newer (also Windows Server 2019+) | `.exe` installer, or a portable `.exe` (no install needed) |
+| Linux | Ubuntu 20.04 or newer, Debian 11+, Fedora 32+, RHEL 9+ | `.AppImage` (portable, no install needed) |
 
 The macOS app is a universal build. It works on both Intel Macs and Apple Silicon Macs (M1, M2, M3, and so on).
 
-The Windows app is for 64-bit Windows only.
+The Windows app is for 64-bit Windows only. The portable `.exe` does not update itself. To update it, download the new file by hand.
 
 The Linux app is for 64-bit Linux only.
 
-If your system is older, the app will not start.
+Older systems are not supported.
+
+**Older systems:** WP Staging Desktop 1.7.1 is the last version that supports macOS 11 (Big Sur) and macOS 12 (Monterey). If you use one of these systems, download [version 1.7.1](https://github.com/wp-staging/wp-staging-desktop/releases/tag/v1.7.1). It does not get new features or fixes.
 
 ---
 
@@ -47,7 +48,7 @@ WP Staging Desktop builds local WordPress sites inside Docker. You must install 
 
 **Docker Desktop** is the easiest choice on all three systems. Download it from [docker.com](https://www.docker.com/products/docker-desktop/).
 
-After you install Docker Desktop, open it once so it starts running. The status bar at the bottom of WP Staging Desktop shows when Docker is ready.
+After you install Docker Desktop, open it once so it starts running. The Docker badge at the top of WP Staging Desktop shows when Docker is ready.
 
 ### Other tools we detect
 
@@ -76,11 +77,11 @@ If the version is older, please update Docker.
 
 ## License
 
-You need a valid WP Staging Pro license. Both the **Agency** and **Developer** licenses work.
+You do not need a license to use the app for local development. Without a license, you can create local sites and restore a site from a local `.wpstg` backup file.
 
-Enter your license key on the License page the first time you open the app. You can buy a license at [wp-staging.com](https://wp-staging.com).
+A WP Staging Pro **Agency** or **Developer** license unlocks the Pro features, such as Remote Sync and restoring from a backup URL. Enter your license key on the **Pro** page. After the license is active, this page is called **License**. You can buy a license at [wp-staging.com](https://wp-staging.com).
 
-The app checks your license online once after Docker becomes available on each app start, and remembers the result until you restart the app. To re-check sooner, open the License page and click **Check status**.
+With a paid license, the wpstaging engine checks the license online and keeps the result for 4 hours. After that, it checks again the next time you create, start, or change a site. **Check Status** on the License page shows the saved license details. It does not start a new online check.
 
 ---
 
@@ -114,13 +115,18 @@ The app needs the internet at certain times:
 |------|-----|
 | First launch | To download the wpstaging engine (one-time) |
 | First time you enter your license | To check it with our server |
-| Each time you start the app, after Docker is up | To verify your license once per session |
+| With a paid license, when you create, start, or change a site (at most once every 4 hours) | To check your license |
 | First time you create a site | To download Docker images |
-| Every six hours while the create-site window is open | To get the list of recent WordPress versions |
+| Each time you start the app, and every six hours after that | To get the list of recent WordPress versions |
+| Each time you start the app, and every 4 hours after that | To check GitHub for a new version of the app |
+| Each time you start the app | To check GitHub for a new wpstaging engine version (at most once a day) |
+| Each time you start the app | To load announcements from wp-staging.com |
+| When the app installs or updates the wpstaging engine | To tell wp-staging.com that the engine was installed |
+| When you send a Help & Feedback message | To send your message to wp-staging.com |
 
-The wpstaging engine is not packaged with the app. The first time you launch WP Staging Desktop, an onboarding screen downloads the wpstaging engine from the official release and saves it under your user folder. If the file is ever removed, the app reinstalls the wpstaging engine automatically on the next status check. The app does not poll for its own updates today; new releases are installed manually.
+The wpstaging engine is not packaged with the app. The first time you launch WP Staging Desktop, an onboarding screen downloads the wpstaging engine from the official release and saves it under your user folder. If the file is ever removed, the app reinstalls the wpstaging engine automatically on the next status check. The app checks for a new version of itself when it starts and every 4 hours. It downloads and installs a new version only after you click. See the FAQ question "How do I update the app?" in [FAQ.md](FAQ.md#q39).
 
-After Docker images are downloaded and your license is checked on start, you can use most of the app offline. You will only need the internet again to create a new site with images you do not have yet.
+After Docker images are downloaded, you can use most of the app offline. A paid license needs the internet again for its check every 4 hours. You will only need the internet again to create a new site with images you do not have yet.
 
 ---
 
@@ -136,6 +142,13 @@ The first time you use the app, it creates a folder in your home folder for your
 | `~/wpstaging/stack/docker/` | A few small support scripts |
 
 If you switch on **Store the database in a Docker volume** when you create a site, that site keeps its database files inside Docker instead of the folder above.
+
+When the app downloads the wpstaging engine, it saves it here:
+
+| System | Engine file |
+|--------|-------------|
+| macOS, Linux | `~/.local/bin/wpstaging` |
+| Windows | `%LOCALAPPDATA%\Programs\wpstaging\wpstaging.exe` |
 
 The app also saves its own settings (theme, layout, license) in the standard place for your system:
 
@@ -176,7 +189,7 @@ A few tasks need your administrator (admin) password. The app asks for it when n
 
 - The `.AppImage` is a portable app. Mark it as executable, then double-click to start:
   ```
-  chmod +x WP-STAGING-Desktop-*.AppImage
+  chmod +x wpstaging-desktop-*-linux-x64.AppImage
   ```
 - The `.AppImage` file needs a small library called **FUSE 2**. If your AppImage does not start, install it:
   - Ubuntu 22.04 or newer: `sudo apt install libfuse2`
@@ -196,8 +209,8 @@ You may have an unsigned copy. Please download the installer again from the offi
 **Microsoft SmartScreen blocks the installer on Windows.**
 Click **More info**, then **Run anyway**. This is normal for new apps until they build up a reputation with Microsoft.
 
-**The status bar says Docker is not running.**
-Open Docker Desktop (or your other Docker tool) and wait until it shows it is ready. The status bar will update on its own.
+**The Docker badge says Docker is not running.**
+Open Docker Desktop (or your other Docker tool) and wait until it shows it is ready. The badge at the top of the app will update on its own.
 
 **Sites will not start when I use OrbStack.**
 OrbStack does not support the network setup we need. Switch to Docker Desktop by opening a terminal and running:
@@ -226,4 +239,4 @@ docker system prune -a
 
 ---
 
-**Last Updated:** 2026-08-31 12:50:50 UTC
+**Last Updated:** 2026-10-18 15:12:32 UTC

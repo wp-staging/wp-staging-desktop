@@ -10,17 +10,21 @@ WP Staging Desktop is a desktop app for Windows, macOS, and Linux. It lets you c
 <a name="q2"></a>
 **Q2: Which operating systems are supported?**  
 **A2:**
-macOS 11 (Big Sur) or newer, Windows 10 or newer, and 64-bit Linux (Ubuntu 20.04+, Debian 11+, Fedora 32+, RHEL 8+). Older systems will not start the app.
+macOS 13 (Ventura) or newer, Windows 10 or newer, and 64-bit Linux (Ubuntu 20.04+, Debian 11+, Fedora 32+, RHEL 9+). Older systems are not supported.
+
+Version 1.7.1 is the last version that supports macOS 11 (Big Sur) and macOS 12 (Monterey). You can download it from the [1.7.1 release page](https://github.com/wp-staging/wp-staging-desktop/releases/tag/v1.7.1).
 
 <a name="q3"></a>
 **Q3: Do I need a license to use this app?**  
 **A3:**
-Yes. You need a valid WP Staging Pro license (Agency or Developer). You can buy one at [wp-staging.com](https://wp-staging.com).
+No. The app is free for local development. Without a license, you can create local sites and restore a site from a local `.wpstg` backup file.
+
+A WP Staging Developer or Agency license unlocks the Pro features: copy your live site into the app with Remote Sync, restore directly from a backup URL, WP Staging Pro in your local sites, and WP Staging CLI. You can buy a license at [wp-staging.com](https://wp-staging.com).
 
 <a name="q4"></a>
 **Q4: Is the app free?**  
 **A4:**
-The app itself is free to download. To use it, you need a paid WP Staging Pro license.
+Yes. The app is free to download and free for local development. Only the Pro features need a Developer or Agency license. See [Q3](#q3).
 
 <a name="q5"></a>
 **Q5: Does this replace the WP Staging WordPress plugin?**  
@@ -30,7 +34,7 @@ No. The plugin runs inside your live WordPress site. WP Staging Desktop runs on 
 <a name="q5a"></a>
 **Q5a: What is the WP Staging Engine?**  
 **A5a:**
-The WP Staging Engine is the [WP Staging CLI](https://github.com/wp-staging/wp-staging-cli-release), scoped and enhanced to power WP Staging Desktop. It does the heavy lifting for your local sites — creating sites, starting and stopping containers, issuing auto-login URLs, and more. You do not run it yourself; the app drives it behind the scenes and keeps it up to date. The binary file is named `wpstaging`, so in technical messages you may see it called the "wpstaging engine".
+The WP Staging Engine is the [WP Staging CLI](https://github.com/wp-staging/wp-staging-cli-release), scoped and enhanced to power WP Staging Desktop. It does the heavy lifting for your local sites — creating sites, starting and stopping containers, issuing auto-login URLs, and more. You do not run it yourself; the app drives it behind the scenes. When an engine update is out, the app shows it in the notifications panel, and you click **Update** to install it. The app updates the engine by itself only when your copy is too old to work with the app. The binary file is named `wpstaging`, so in technical messages you may see it called the "wpstaging engine".
 
 <a name="q6"></a>
 **Q6: Does it support Apple Silicon Macs (M1, M2, M3)?**  
@@ -53,7 +57,7 @@ Download the file for your system from the official release page and run it.
 
 - macOS: open the `.dmg` and drag the app to your Applications folder.
 - Windows: run the `.exe` installer.
-- Linux: the `.AppImage` is a portable app. Mark it as executable (`chmod +x WP-STAGING-Desktop-*.AppImage`), then double-click to start.
+- Linux: the `.AppImage` is a portable app. Mark it as executable (`chmod +x wpstaging-desktop-*-linux-x64.AppImage`), then double-click to start.
 
 <a name="q8a"></a>
 **Q8a: What happens the first time I launch the app?**  
@@ -65,7 +69,7 @@ The file is saved under your own user folder, so no administrator password is ne
 - macOS / Linux: `~/.local/bin/wpstaging`
 - Windows: `%LOCALAPPDATA%\Programs\wpstaging\wpstaging.exe`
 
-After this one-time step, the main app opens. If `wpstaging` is already on your computer, the app uses your existing copy and skips this step.
+After this one-time step, the main app opens. If `wpstaging` is already on your computer, the app uses your existing copy and skips this step. If that copy is older than v1.16.0, the app replaces it with a new version in the same place. If the copy is in a system folder, the app asks for your administrator password.
 
 <a name="q8b"></a>
 **Q8b: What if the wpstaging engine file is deleted or missing?**  
@@ -129,7 +133,7 @@ The app can show the status of these tools. Site creation has not been tested wi
 <a name="q18"></a>
 **Q18: How do I know Docker is running?**  
 **A18:**
-The status bar at the top of the app shows a Docker badge. When Docker is ready, the badge is green and shows the product name and version.
+The Docker badge at the top of the app shows the Docker state. When Docker is ready, the badge is green and says **Running**.
 
 <a name="q19"></a>
 **Q19: Which Docker version do I need?**  
@@ -148,7 +152,7 @@ No. Docker Desktop on Windows must be in **Linux container mode** (the default).
 <a name="q21"></a>
 **Q21: How do I create my first site?**  
 **A21:**
-Click the **Create site** button at the top of the app. Enter a name, pick a PHP and WordPress version, and click **Create**. The app downloads the needed images the first time, then sets up the site for you.
+Click the **Add Site** button. Enter a name, pick a PHP and WordPress version, and click **Create Site**. The app downloads the needed images the first time, then sets up the site for you.
 
 <a name="q21a"></a>
 **Q21a: How do I change the PHP or WordPress version for an existing site?**  
@@ -161,14 +165,14 @@ Open the site detail page and go to the **PHP & WordPress** tab. Pick a new vers
 <a name="q21b"></a>
 **Q21b: How do I open a command line inside a site?**  
 **A21b:**
-Open the site detail page, go to the **PHP & WordPress** tab, click **Open Shell**, and confirm. Your terminal application opens with a shell inside the site's PHP container, where the WordPress files are. Use it to run WP-CLI, read files, or check a problem. The site must be running.
+Open the site detail page, go to the **PHP & WordPress** tab (called **PHP** on a plain PHP site), click **Open Shell**, and confirm. Your terminal application opens with a shell inside the site's PHP container, where the WordPress files are. Use it to run WP-CLI, read files, or check a problem. The site must be running.
 
 If the app cannot open a terminal, it prints the command in the terminal panel at the bottom of the window. Copy that command and run it yourself.
 
 <a name="q21c"></a>
 **Q21c: Can a site run on Apache instead of NGINX?**  
 **A21c:**
-Yes. When you create a site, go to the **Will be created with** row and set **Web server** to **Apache**. To move an existing site, open the site detail page and go to the **PHP & WordPress** tab. Pick a web server from **Switch web server**, click **Switch**, and confirm. The site must be running.
+Yes. When you create a site, go to the **Will be created with** row and set **Web server** to **Apache**. To move an existing site, open the site detail page and go to the **PHP & WordPress** tab (called **PHP** on a plain PHP site). Pick a web server from **Switch web server**, click **Switch**, and confirm. The site must be running.
 
 - The Sites list and the site detail page show which web server each site uses.
 - Apache needs wpstaging engine v1.16.0 or newer. The app updates an older engine when it starts.
@@ -190,6 +194,20 @@ Yes. When you create a site, go to the **Will be created with** row and set **Da
 - MySQL 5.7 has no ARM build. It runs slower on Apple Silicon, and it may not start on Windows on ARM.
 - A backup from MariaDB 10.10 or newer can fail to restore into a MySQL site with `Unknown collation`. This affects tables that a plugin created without a collation. Keep such a site on MariaDB.
 - This needs wpstaging engine v1.16.0 or newer. The app updates an older engine when it starts.
+
+<a name="q21e"></a>
+**Q21e: Can I create a site without WordPress, for my own PHP app?**  
+**A21e:**
+Yes. Click **Add Site** and pick **Plain PHP site**. Enter a name and click **Create Site**. The site gets the same PHP, web server, database, Mailpit, Adminer and HTTPS setup as a WordPress site. The database is empty, and the site's `www` folder holds one placeholder `index.php`. Replace it with your own files.
+
+Your PHP code can read the database settings with `getenv()`: `DB_HOST`, `DB_NAME`, `DB_USER` and `DB_PASSWORD`. Inside the site, `DB_HOST` is `localhost`. The **Database** tab on the site detail page shows the settings for a connection from your computer.
+
+- The Sites list and the site detail page show the site with the label **PHP Site**.
+- WordPress actions are hidden for this site: wp-admin, auto-login, the WordPress version switcher, and Pull from production.
+- **Reset** deletes all files in the site folder and empties the database. Back up your files first. A reset cannot restore a backup on this site.
+- If creating the site fails part-way, the site cannot be created again with the same name. Open it from the Sites list, then reset or delete it.
+- This needs wpstaging engine v1.17.0 or newer. With an older engine, the **Plain PHP site** option does not show.
+- This needs a paid license. On the free tier, the **Plain PHP site** option shows a **Pro** badge and an upgrade panel.
 
 <a name="q22"></a>
 **Q22: Where are my sites stored?**  
@@ -223,12 +241,12 @@ Yes. Each site has a built-in mail viewer called **Mailpit**. Click the Mailpit 
 <a name="q26"></a>
 **Q26: How do I delete a site?**  
 **A26:**
-On the site detail page, scroll to the **Danger zone** at the bottom and click **Delete site**. You must confirm twice. This removes the site files and its database.
+On the site detail page, scroll to the **Danger Zone** at the bottom and click **Delete Site**. To confirm, type `delete` in the window that opens. This removes the site files and its database.
 
 <a name="q27"></a>
 **Q27: My site shows an HTTPS warning in the browser. How do I fix it?**  
 **A27:**
-Open the **Settings** page in the app and click **Install local certificate authority**. Enter your password when asked. The next time you open the site, the warning is gone.
+Open the **Settings** page in the app and click **Install local CA**. Enter your password when asked. The next time you open the site, the warning is gone.
 
 <a name="q27a"></a>
 **Q27a: Only one of my sites has a certificate warning. How do I fix just that site?**  
@@ -249,7 +267,7 @@ Yes. Open the site detail page and click the **Diagnose & Logs** tab. Under **In
 <a name="q28b"></a>
 **Q28b: My site creation failed. How do I send the log to support?**  
 **A28b:**
-On the failed screen, click **Report a problem**. This opens the feedback form with **Attach site install log** already turned on. You can also click the Help icon in the header at any time, choose **Report a Bug**, pick the affected site, and turn on **Attach site install log** yourself.
+On the failed screen, click **Report a problem**. This opens the feedback form with **Attach site install log** already turned on. You can also click the Help icon in the header at any time, choose **Report a Bug**, and pick the affected site. **Attach site install log** turns on when you pick a site.
 
 <a name="q28c"></a>
 **Q28c: Can I see the app's own log?**  
@@ -290,6 +308,51 @@ You have two choices. Click **Create Anyway** to accept the different port. Or c
 
 To see the current answer at any time, open the site detail page, click the **Diagnose & Logs** tab, and look at the **Port Availability** row.
 
+<a name="q31d"></a>
+**Q31d: After a restore, some URLs still use another host, such as my CDN. How do I change them?**  
+**A31d:**
+A restore changes only the site's own hosts: the site address, the home address, and each subsite of a network. All other hosts keep their URLs. For example, if your site is `example.com`, the URLs of `cdn.example.com` and `www.example.com` stay as they are.
+
+To change this, use the **URLs** section in **Add Site** or **Reset Site**. It stays hidden until you choose a backup:
+
+1. In **Add Site**, choose **Restore from backup** and pick your `.wpstg` file. In **Reset Site**, pick your `.wpstg` file in **Backup file (optional)**.
+2. Click **URLs** under the backup field to open the section.
+3. Click **Add host** or **Add URL** to add a row.
+
+The section has two lists:
+
+- **Replace host** moves the URLs of one host to a new host, for example `media.example.com` to `media.example.local`. Each URL keeps its `http` or `https`. Only that exact host changes, not the hosts under it.
+- **Keep URL** leaves every URL that starts with a value unchanged, for example `https://example.com/wp-content/uploads`. The same URL with the other scheme or without a scheme also stays. If the value names your site's own host, add a path.
+
+Keep these points in mind:
+
+- Only URLs in the database change. The new host must still work on your computer.
+- **Replace host** cannot change the site's own host or a subsite host. The app cannot check this before the restore starts, so the error appears in the log during the restore. On **Reset Site**, the site is already empty at that point.
+- The section needs wpstaging engine v1.18.0 or newer. With an older engine, it does not show. It also does not show for a backup web address without a license.
+
+<a name="q31e"></a>
+**Q31e: How do I export a site as a static website?**  
+**A31e:**
+Open the site detail page. On the **Overview** tab, find **Export static website** above **Reset Site** and click **Export**. The site must be running. Click **Export** again in the window that opens. The export holds the HTML, CSS, JavaScript and media files of the site. Any web host can serve these files without PHP or a database.
+
+The form has these optional fields:
+
+- **Output folder:** where the files go. If you leave it empty, the app uses the `static` folder in the site folder.
+- **Base URL:** the address the static website will have. If you leave it empty, the export uses relative links.
+- **Exclude:** skips the URLs that match a pattern, such as `/shop/` or `*.zip`.
+- **Include:** also saves a URL or path that no link reaches.
+
+Keep these points in mind:
+
+- Comments, search, forms and login do not work in a static copy.
+- If you choose an output folder that already exists, the app asks first. The export refuses a folder that holds other files, and the error names them.
+- A failed home page stops the export. Other failed URLs are listed when the export ends.
+- If you cancel, the app removes the partial export. An earlier export stays as it was.
+- For a multisite, only the site's own hostname is exported. A subsite on another hostname is a separate export.
+- A site with **Plain** or `index.php` permalinks exports only the home page. Choose another permalink structure in WordPress first.
+- While the export runs, the site cannot be stopped, reset or deleted.
+- This needs a paid license and wpstaging engine v1.18.0 or newer. With an older engine, the action does not show.
+
 <a name="q32"></a>
 **Q32: How do I see all running containers?**  
 **A32:**
@@ -302,22 +365,24 @@ Open the **Containers** page from the sidebar (or top navigation). It shows ever
 <a name="q33"></a>
 **Q33: How do I enter my license key?**  
 **A33:**
-Open the **License** page. Paste your key in the license field and click **Register**.
+Open the **Pro** page in the menu. It is called **License** after you activate a license. Paste your key and click **Activate License**.
 
 <a name="q34"></a>
 **Q34: Does the app work offline?**  
 **A34:**
-Yes, most of the time. The internet is only needed the first time to download the wpstaging engine, pull the Docker images, and check your license. Once the wpstaging engine and images are cached and your license has been validated on this start-up, you can keep using the app offline until you restart it.
+Yes, most of the time. The internet is needed to download the wpstaging engine the first time, to pull Docker images, and to check a paid license. The free tier needs no internet for its license check.
+
+With a paid license, the wpstaging engine checks the license online and keeps the result for 4 hours. After that, it needs the internet again the next time you create, start, or change a site.
 
 <a name="q35"></a>
 **Q35: How long is my license remembered?**  
 **A35:**
-The app checks your license online once after Docker becomes available on each app start, then remembers the result on this computer until you restart the app. To force a fresh check, click **Check status** on the License page.
+The wpstaging engine checks your license online and keeps the result for 4 hours. After that, it checks again the next time you create, start, or change a site. **Check Status** on the License page shows the saved license details. It does not start a new online check.
 
 <a name="q36"></a>
-**Q36: I see "License invalid" but I have a valid key.**  
+**Q36: I see "Invalid license key" but I have a valid key.**  
 **A36:**
-Check your internet connection and try **Check status** on the License page. If the problem stays, contact [WP Staging support](https://wp-staging.com/support).
+Check your internet connection. Then paste your key again on the License page and click **Activate License**. If the problem stays, contact [WP Staging support](https://wp-staging.com/support).
 
 <a name="q37"></a>
 **Q37: Can I use the same license on more than one computer?**  
@@ -342,6 +407,8 @@ You still need to update by hand in two cases:
 
 - **You use version 1.2.2 or older.** These versions cannot update themselves. Install version 1.3.0 by hand one time. After that the app takes over.
 - **You use the Windows portable build.** It has no installer, so it cannot update itself.
+
+On macOS 11 (Big Sur) and macOS 12 (Monterey), the app does not offer versions after 1.7.1. These versions need macOS 13 or newer. See [Q2](#q2).
 
 To update by hand, open the [WP Staging Desktop releases page](https://github.com/wp-staging/wp-staging-desktop/releases), download the new file for your system, and then:
 
@@ -375,7 +442,7 @@ No. Sites are stored in `~/wpstaging/`, which is not touched by the installer or
 **A41:**
 
 - Delete sites you no longer need from the site detail page.
-- Remove unused Docker images by opening a terminal and running `docker system prune -a`. This removes only images that no site needs.
+- Remove unused Docker images by opening a terminal and running `docker system prune -a`. This removes every image that no running site uses, so Docker downloads them again the next time a stopped site starts. It also removes all stopped containers, unused networks, and build cache, including ones that other programs use.
 
 <a name="q42"></a>
 **Q42: How do I move my sites to a new computer?**  
@@ -391,11 +458,11 @@ The simplest way is to use the WP Staging Pro plugin to create a backup file (`.
 **A43:**
 The app contacts a few servers:
 
-- **wp-staging.com** to check your license, to load announcements shown in the app, and to report that the wpstaging engine was installed or updated.
+- **wp-staging.com** to check a paid license, to load announcements shown in the app, to report that the wpstaging engine was installed or updated, and to send a Help & Feedback message when you submit one.
+- **GitHub** to download the wpstaging engine, to check for a new wpstaging engine version (at most once a day), and to check for a new app version (every 4 hours).
 - **Docker Hub** to download container images the first time.
 - **api.wordpress.org** to get the list of recent WordPress versions.
 
-The wpstaging engine is downloaded once from the official release on first launch. After that, the wpstaging engine runs locally and the release server is not contacted again during normal use.
 
 It does not send your site data anywhere.
 
@@ -418,9 +485,9 @@ Some setup steps need administrator access:
 ## Common Problems
 
 <a name="q46"></a>
-**Q46: The status bar says Docker is not running.**  
+**Q46: The Docker badge says Docker is not running.**  
 **A46:**
-Open Docker Desktop (or your Docker tool) and wait until it shows it is ready. The status bar in the app updates by itself.
+Open Docker Desktop (or your Docker tool) and wait until it shows it is ready. The badge in the app updates by itself.
 
 <a name="q47"></a>
 **Q47: A site will not start.**  
@@ -430,7 +497,7 @@ First check the Docker badge. If Docker is running, open the terminal panel at t
 <a name="q48"></a>
 **Q48: Two sites try to use the same port.**  
 **A48:**
-The app picks a free port for each new site, but sometimes a port becomes busy after another program starts. Open the site detail page and change the port under **Network**, then start the site again.
+The app picks a free port for each new site, but sometimes a port becomes busy after another program starts. Open the site detail page and change the port under **Network**, then start the site again. Changing a port needs wpstaging engine v1.16.1 or newer.
 
 <a name="q49"></a>
 **Q49: My screen looks stuck on "Creating site".**  
@@ -440,27 +507,27 @@ Site creation can take several minutes the first time, because Docker images mus
 <a name="q50"></a>
 **Q50: The browser says "Your connection is not private" on a local site.**  
 **A50:**
-Open the Settings page and click **Install local certificate authority**. Enter your password when asked. Then reload the site in the browser.
+Open the Settings page and click **Install local CA**. Enter your password when asked. Then reload the site in the browser.
 
 <a name="q51"></a>
 **Q51: I cannot delete a site. The button does nothing.**  
 **A51:**
-A previous run may still be holding a lock on the site. Open the Settings page, find **Stuck Processes**, and click **Force-cleanup**. Then try **Delete site** again.
+A previous run may still be holding a lock on the site. Open the Settings page, find **Stuck Processes**, and click **Force-cleanup**. Then try **Delete Site** again.
 
 <a name="q52"></a>
 **Q52: The app shows "Sudo password required" again and again.**  
 **A52:**
-The app asks for your administrator password only once. After that, it remembers your password while the app stays open. It asks again if you typed the wrong password, canceled the window, or closed and reopened the app. Make sure your user has administrator rights on the computer, and enter the password carefully when prompted.
+The app asks for your administrator password only once. After that, it remembers your password for up to 12 hours while the app stays open. It asks again if you typed the wrong password, canceled the window, or closed and reopened the app. Make sure your user has administrator rights on the computer, and enter the password carefully when prompted.
 
 <a name="q53"></a>
-**Q53: The status bar shows low disk space.**  
+**Q53: My disk is almost full.**  
 **A53:**
-Free space on the drive that holds your home folder. To remove old Docker images you no longer need, open a terminal and run `docker system prune -a`.
+The status bar at the bottom shows how much disk space is used. Free space on the drive that holds your home folder. See [Q41](#q41) for how to remove sites and old Docker images.
 
 <a name="q54"></a>
 **Q54: The app shows the wrong WordPress versions.**  
 **A54:**
-The list refreshes from the internet every six hours. If you are offline, the app uses the cached list. Open and close the **Create site** window once you are online again to refresh.
+The app refreshes the list from the internet when it starts and every six hours while it runs. If you are offline, the app uses the last saved list. It gets the new list at the next refresh after you are online again.
 
 ---
 
@@ -471,4 +538,4 @@ The list refreshes from the internet every six hours. If you are offline, the ap
 
 ---
 
-**Last Updated:** 2026-09-22 16:54:18 UTC
+**Last Updated:** 2026-10-30 15:03:43 UTC

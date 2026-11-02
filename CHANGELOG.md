@@ -1,3 +1,14 @@
+## v1.8.0 (2026-11-02)
+
+- **New:** Create a plain PHP site without WordPress (#227).
+- **New:** Export a running site as a static website that any web host can serve (#239).
+- **Enh:** A backup restore can now replace other hosts, such as a CDN, or keep some URLs as they are (#238).
+- **Enh:** Fast mode can now be turned off when adding a site on Windows (#224).
+- **Enh:** A backup URL with an untrusted certificate can now be used to create or reset a site (#223).
+- **Enh:** Updated the app core with the latest security fixes. The app now needs macOS 13 or newer (#213).
+- **Enh:** Version 1.7.1 is the last version for macOS 11 and macOS 12. Macs on 11 or 12 no longer get update offers (#213).
+- **Dev:** Update Electron to v44 (#213).
+
 ## v1.7.1 (2026-10-05)
 
 - **Enh:** The app now reports which operating system version it runs on, so we know which macOS, Windows and Linux versions to keep supporting (#217).
